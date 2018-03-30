@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "nfapp/style.css" %}'>
+<b>Empresa</b><p>
+{{ empresa.razaosocial }}<p>
+<b>Notas</b><p>
+{% if nota_list %}
+	<table width=1000 border=yes class=lista>
+		<tr height=20>
+		<td width=50><b>Id</b></td>
+		<td width=50><b>Série</b></td>
+		<td width=100><b>Número</b></td>
+		<td width=*><b>Nome/Descrição</b></td>
+		<td width=100><b>Peso</b></td>
+		<td width=100><b>Cubagem</b></td>
+		<td width=100><b>Data</b></td>
+        </tr>
+{% for nota in nota_list %}
+		<tr height=20>
+		<td>{{ nota.id }}</td>
+		<td>{{ nota.serie }}</td>
+		<td>{{ nota.numero }}</td>
+        <td>{{ nota.nomedescricao }}</td>
+        <td>{{ nota.peso }} kg</td>
+        <td>{{ nota.cubagem }} kg/m3</td>
+        <td>{{ nota.data|date:"d/m/Y" }}</td>
+        </tr>
+{% endfor %}
+    </table>
+    {% else %}
+    Nenhuma nota emitida para a empresa.
+{% endif %}
+	<p>
+	<table class=''><tr><td width=1000 align=center>
+	    <form method="get" action="{% url 'nota_list' empresa.id %}">
+		Número: <input name=numero type=text maxlength=5 value="{{request.GET.numero}}" style=width:100px>
+		Nome/Descrição: <input name=nomedescricao type=text  maxlength=100 value="{{request.GET.nomedescricao}}" style=width:200px><p>
+		<input type=submit value="Filter" style=width:120px>
+		<input type=button value="Empresas" style=width:120px onclick=location.href="{% url "empresa_list" %}">
+	    </form>
+    </td></tr></table>
+
