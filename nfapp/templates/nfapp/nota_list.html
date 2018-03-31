@@ -20,7 +20,7 @@
 		<td>{{ nota.serie }}</td>
 		<td>{{ nota.numero }}</td>
         <td>{{ nota.nomedescricao }}</td>
-        <td>{{ nota.peso }} kg</td>
+        <td>{{ nota.peso }} 7kg</td>
         <td>{{ nota.cubagem }} kg/m3</td>
         <td>{{ nota.data|date:"d/m/Y" }}</td>
         </tr>
@@ -34,7 +34,7 @@
 	    <form method="get" action="{% url 'nota_list' empresa.id %}">
 		Número: <input name=numero type=text maxlength=5 value="{{request.GET.numero}}" style=width:100px>
 		Nome/Descrição: <input name=nomedescricao type=text  maxlength=100 value="{{request.GET.nomedescricao}}" style=width:200px><p>
-		<input type=submit value="Filter" style=width:120px>
+		<input type=submit value="Procurar" style=width:120px>
 		<input type=button value="Empresas" style=width:120px onclick=location.href="{% url "empresa_list" %}">
 	    </form>
     </td></tr></table>
