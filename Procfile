@@ -1,1 +1,1 @@
-web: gunicorn callproj.wsgi --log-file -
+web: gunicorn nfproj.wsgi --log-file -
