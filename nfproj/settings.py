@@ -25,7 +25,7 @@ SECRET_KEY = '*y9eacbe(iuafju^jzwo!0bc!+^=^=!zb^_^8!6*sdghjp5v&@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["nfappfcxsantos.herokuapp.com","localhost","127.0.0.1"]
 
 
 # Application definition
